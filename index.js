@@ -43,16 +43,20 @@ const SftpToS3 = {
           return retrieveFileStreams(sftp, config, fileList, "sftp");
         })
         .then(fileStreams => {
+          console.log("streaming files");
           return streamToString(fileStreams);
         })
         .then(dataArray => {
+          console.log("uploading to s3");
           return uploadToS3.putBatch(config, dataArray);
         })
         .then(files => {
+          console.log("making completed uploads dir");
           sftp.mkdir(config.completedDir, true);
           return sftp.list(config.fileDownloadDir);
         })
         .then(files => {
+          console.log("renaming/moving files");
           files.map(file => {
             sftp.rename(file.name, config.completedDir + file.name);
           });
