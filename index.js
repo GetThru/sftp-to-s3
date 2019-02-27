@@ -58,7 +58,10 @@ const SftpToS3 = {
         .then(files => {
           console.log("renaming/moving files");
           files.map(file => {
-            sftp.rename(file.name, config.completedDir + file.name);
+            sftp.rename(
+              config.fileDownloadDir + file.name,
+              config.completedDir + file.name
+            );
           });
         })
         .then(() => {
