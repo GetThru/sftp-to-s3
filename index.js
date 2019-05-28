@@ -40,6 +40,7 @@ const SftpToS3 = {
           return sftp.list(config.fileDownloadDir);
         })
         .then(fileList => {
+          console.log("filelist", fileList);
           return retrieveFileStreams(sftp, config, fileList, "sftp");
         })
         .then(fileStreams => {
