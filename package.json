@@ -31,7 +31,7 @@
   "dependencies": {
     "aws-sdk": "^2.28.0",
     "bluebird": "^3.5.0",
-    "ssh2-sftp-client": "2.4.3",
+    "ssh2-sftp-client": "git+https://github.com/jyu213/ssh2-sftp-client.git#9c33e604d89c91fb378eec80eeadde1952794521",
     "stream-to-array": "^2.3.0"
   }
 }
