@@ -44,6 +44,7 @@ const SftpToS3 = {
           return retrieveFileStreams(sftp, config, fileList, "sftp");
         })
         .then(fileStreams => {
+          console.log("file streams: ", fileStreams);
           console.log("streaming files");
           return streamToString(fileStreams);
         })
